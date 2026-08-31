@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="12.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.recepcion_de_cafe.HelloController">
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+    </padding>
+
+    <Label text="Registro de Lotes de Café" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+
+    <!-- Formulario de Entrada de Datos -->
+    <GridPane hgap="10" vgap="10" alignment="CENTER">
+        <Label text="Productor:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="txtProductor" promptText="Nombre del productor" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <Label text="Peso (Kg):" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="txtPeso" promptText="Ej: 450.5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label text="Variedad:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="txtVariedad" promptText="Ej: Caturra, Geisha" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <Button text="Agregar Lote" onAction="#onAgregarLoteClick" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+    </GridPane>
+
+    <!-- Tabla para mostrar los lotes -->
+    <TableView fx:id="tablaLotes" prefHeight="220.0" prefWidth="480.0">
+        <columns>
+            <TableColumn fx:id="colId" prefWidth="60.0" text="ID" />
+            <TableColumn fx:id="colProductor" prefWidth="160.0" text="Productor" />
+            <TableColumn fx:id="colPeso" prefWidth="110.0" text="Peso (Kg)" />
+            <TableColumn fx:id="colVariedad" prefWidth="140.0" text="Variedad" />
+        </columns>
+    </TableView>
+
+    <!-- Etiqueta de detalles seleccionados -->
+    <Label fx:id="lblDetalles" text="Selecciona un lote o haz clic derecho sobre él para ver el menú contextual." style="-fx-font-style: italic;" />
+</VBox>

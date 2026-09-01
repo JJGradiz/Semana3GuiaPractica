@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ni.edu.uam.tiendadeartesanias.CatalogoController" spacing="10">
+
+    <!-- Menú Principal -->
+    <MenuBar>
+        <Menu text="Catálogo">
+            <MenuItem text="Nuevo Producto" onAction="#onNuevo"/>
+            <MenuItem text="Guardar" onAction="#onGuardar"/>
+        </Menu>
+        <Menu text="Ventas"/>
+        <Menu text="Ayuda"/>
+    </MenuBar>
+
+    <!-- Barra de Herramientas -->
+    <ToolBar>
+        <Button text="Nuevo" onAction="#onNuevo"/>
+        <Button text="Guardar" onAction="#onGuardar"/>
+        <Separator/>
+        <TextField fx:id="txtBuscar" promptText="Buscar artesania..."/>
+        <Button text="Buscar" onAction="#onBuscar"/>
+    </ToolBar>
+
+    <!-- Tabla del Catálogo -->
+    <TableView fx:id="tablaProductos" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colImagen" text="Imagen" prefWidth="60"/>
+            <TableColumn fx:id="colId" text="ID" prefWidth="80"/>
+            <TableColumn fx:id="colNombre" text="Producto" prefWidth="180"/>
+            <TableColumn fx:id="colCategoria" text="Categoría" prefWidth="120"/>
+            <TableColumn fx:id="colPrecio" text="Precio (NIO)" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+</VBox>

@@ -1,12 +1,15 @@
 package ni.edu.uam.registropulperia.controller;
 
+
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import ni.edu.uam.registropulperia.modelos.Venta;
 
-public class pulperiaController {
+public class PulperiaController {
+
     @FXML
     private TextField txtCantidad;
 
@@ -30,5 +33,4 @@ public class pulperiaController {
             lblTotal.setText("Ingrese datos numéricos válidos.");
         }
     }
-
 }

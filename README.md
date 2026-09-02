@@ -27,9 +27,9 @@ Es una aplicación para registrar lotes de café recibidos desde distintos produ
 
 ### Archivos principales
 - `Lote.java`: modelo de los datos del lote.
-- `HelloController.java`: lógica de la pantalla.
+- `CafeController.java`: lógica de la pantalla.
 - `hello-view.fxml`: diseño de la interfaz.
-- `HelloApplication.java`: punto de entrada de la aplicación.
+- `CafeApplication.java`: punto de entrada de la aplicación.
 
 ## Proyecto 2: RegistroPulperia
 

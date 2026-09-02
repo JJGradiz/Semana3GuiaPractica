@@ -1,7 +1,5 @@
 package ni.edu.uam.registropulperia.controller;
 
-
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -27,10 +25,17 @@ public class PulperiaController {
 
             Venta venta = new Venta(cantidad, precio);
 
-            lblTotal.setText(String.format("Total: C$ %.2f", venta.getTotal()));
+            lblTotal.setText(String.format(
+                    "Total: C$ %.2f | ITBMS: C$ %.2f | Total con impuesto: C$ %.2f",
+                    venta.getTotal(),
+                    venta.getImpuesto(),
+                    venta.getTotalConImpuesto()
+            ));
 
         } catch (NumberFormatException e) {
             lblTotal.setText("Ingrese datos numéricos válidos.");
+        } catch (IllegalArgumentException e) {
+            lblTotal.setText(e.getMessage());
         }
     }
 }

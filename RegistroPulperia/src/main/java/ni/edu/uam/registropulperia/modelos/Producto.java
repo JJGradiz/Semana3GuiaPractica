@@ -1,5 +1,7 @@
 package ni.edu.uam.registropulperia.modelos;
 
+
+
 public class Producto {
     private String codigo;
     private String nombre;
@@ -13,8 +15,8 @@ public class Producto {
         this.codigo = codigo;
         this.nombre = nombre;
         this.categoria = categoria;
-        this.precio = precio;
-        this.cantidad = cantidad;
+        setPrecio(precio);
+        setCantidad(cantidad);
     }
 
     public String getCodigo() { return codigo; }
@@ -27,14 +29,42 @@ public class Producto {
     public void setCategoria(String categoria) { this.categoria = categoria; }
 
     public double getPrecio() { return precio; }
-    public void setPrecio(double precio) { this.precio = precio; }
+    public void setPrecio(double precio) {
+        if (precio > 0) {
+            this.precio = precio;
+        } else {
+            throw new IllegalArgumentException("El precio debe ser mayor a 0");
+        }
+    }
 
     public int getCantidad() { return cantidad; }
-    public void setCantidad(int cantidad) { this.cantidad = cantidad; }
+    public void setCantidad(int cantidad) {
+        if (cantidad >= 0) {
+            this.cantidad = cantidad;
+        } else {
+            throw new IllegalArgumentException("La cantidad no puede ser negativa");
+        }
+    }
+
+    public String getPrecioFormateado() {
+        return String.format("C$ %.2f", precio);
+    }
+
+    public boolean hayStock() {
+        return this.cantidad > 0;
+    }
+
+    public void restarStock(int cantidadVender) {
+        if (cantidadVender <= this.cantidad) {
+            this.cantidad -= cantidadVender;
+        } else {
+            throw new IllegalArgumentException("Stock insuficiente");
+        }
+    }
 
     @Override
     public String toString() {
-        return String.format("Código: %s | Nombre: %s | Categoría: %s | Precio: C$ %.2f | Cantidad: %d",
-                codigo, nombre, categoria, precio, cantidad);
+        return String.format("Código: %s | Nombre: %s | Categoría: %s | Precio: %s | Cantidad: %d",
+                codigo, nombre, categoria, getPrecioFormateado(), cantidad);
     }
 }

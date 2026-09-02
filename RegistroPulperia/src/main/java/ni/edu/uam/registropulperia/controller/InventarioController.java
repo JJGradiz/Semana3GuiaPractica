@@ -1,18 +1,18 @@
 package ni.edu.uam.registropulperia.controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import ni.edu.uam.registropulperia.modelos.Producto;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class InventarioController {
 
@@ -41,61 +41,35 @@ public class InventarioController {
     private Label lblInfoProducto;
 
     @FXML
-    private TableView<Producto> tablaProductos;
+    private Label lblTotalProductos;
 
     @FXML
-    private TableColumn<Producto, String> colCodigo;
+    private Label lblValorInventario;
 
-    @FXML
-    private TableColumn<Producto, String> colNombre;
-
-    @FXML
-    private TableColumn<Producto, String> colCategoria;
-
-    @FXML
-    private TableColumn<Producto, Double> colPrecio;
-
-    @FXML
-    private TableColumn<Producto, Integer> colCantidad;
-
-    private final ObservableList<Producto> inventario = FXCollections.observableArrayList();
-
-    @FXML
-    public void initialize() {
-        colCodigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
-        colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        colCategoria.setCellValueFactory(new PropertyValueFactory<>("categoria"));
-        colPrecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
-        colCantidad.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
-
-        tablaProductos.setItems(inventario);
-    }
+    private List<Producto> inventario = new ArrayList<>();
 
     @FXML
     private void guardarProducto(ActionEvent event) {
-        String codigo = txtCodigo.getText() == null ? "" : txtCodigo.getText().trim();
-        String nombre = txtNombre.getText() == null ? "" : txtNombre.getText().trim();
-        String categoria = txtCategoria.getText() == null ? "" : txtCategoria.getText().trim();
-        String precioTexto = txtPrecio.getText() == null ? "" : txtPrecio.getText().trim();
-        String cantidadTexto = txtCantidad.getText() == null ? "" : txtCantidad.getText().trim();
-
-        if (codigo.isEmpty() || nombre.isEmpty() || categoria.isEmpty() || precioTexto.isEmpty() || cantidadTexto.isEmpty()) {
-            mostrarAlerta("Campos obligatorios", "Debes completar todos los campos antes de guardar el producto.");
-            return;
-        }
-
         try {
-            double precio = Double.parseDouble(precioTexto);
-            int cantidad = Integer.parseInt(cantidadTexto);
-
-            if (precio <= 0 || cantidad <= 0) {
-                mostrarAlerta("Datos inválidos", "El precio y la cantidad deben ser valores mayores a cero.");
+            if (camposVacios()) {
+                mostrarAlerta("Error", "Todos los campos son obligatorios.");
                 return;
             }
 
+            String codigo = txtCodigo.getText().trim();
+            String nombre = txtNombre.getText().trim();
+            String categoria = txtCategoria.getText().trim();
+            double precio = Double.parseDouble(txtPrecio.getText());
+            int cantidad = Integer.parseInt(txtCantidad.getText());
+
             Producto producto = new Producto(codigo, nombre, categoria, precio, cantidad);
+
+            if (!producto.hayStock()) {
+                mostrarAlerta("Advertencia", "Producto registrado sin stock.");
+            }
+
             inventario.add(producto);
-            tablaProductos.setItems(inventario);
+            actualizarEstadisticas();
 
             lblResultado.setText("✓ Producto guardado exitosamente");
             lblResultado.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
@@ -105,47 +79,89 @@ public class InventarioController {
 
         } catch (NumberFormatException e) {
             mostrarAlerta("Error", "Ingrese valores numéricos válidos para precio y cantidad.");
+        } catch (IllegalArgumentException e) {
+            mostrarAlerta("Error", e.getMessage());
         }
     }
 
     @FXML
     private void buscarProducto(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
-            String codigoBuscar = txtBuscar.getText() == null ? "" : txtBuscar.getText().trim();
+            String codigoBuscar = txtBuscar.getText().trim();
 
             if (codigoBuscar.isEmpty()) {
-                lblResultado.setText("⚠ Ingrese un código para buscar");
+                lblResultado.setText(" Ingrese un código para buscar");
                 lblResultado.setStyle("-fx-text-fill: orange;");
                 lblInfoProducto.setText("");
                 return;
             }
 
-            Producto encontrado = null;
             for (Producto producto : inventario) {
                 if (producto.getCodigo().equalsIgnoreCase(codigoBuscar)) {
-                    encontrado = producto;
-                    break;
+                    lblResultado.setText("✓ Producto encontrado");
+                    lblResultado.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                    lblInfoProducto.setText(producto.toString());
+                    return;
                 }
             }
 
-            if (encontrado != null) {
-                lblResultado.setText("✓ Producto encontrado");
-                lblResultado.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
-                lblInfoProducto.setText(encontrado.toString());
-            } else {
-                lblResultado.setText("✗ Producto no encontrado");
-                lblResultado.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
-                lblInfoProducto.setText("");
-            }
+            lblResultado.setText("✗ Producto no encontrado");
+            lblResultado.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
+            lblInfoProducto.setText("");
         }
     }
 
     @FXML
-    private void limpiarFormulario(ActionEvent event) {
-        limpiarCampos();
-        lblResultado.setText("Formulario limpiado");
-        lblResultado.setStyle("-fx-text-fill: #555;");
+    private void limpiarCampos(ActionEvent event) {
+        txtCodigo.clear();
+        txtNombre.clear();
+        txtCategoria.clear();
+        txtPrecio.clear();
+        txtCantidad.clear();
+        txtBuscar.clear();
+        lblResultado.setText("");
         lblInfoProducto.setText("");
+    }
+
+    @FXML
+    private void mostrarSinStock(ActionEvent event) {
+        StringBuilder sb = new StringBuilder("PRODUCTOS SIN STOCK:\n\n");
+        int count = 0;
+
+        for (Producto p : inventario) {
+            if (!p.hayStock()) {
+                sb.append("- ").append(p.getNombre()).append(" (").append(p.getCodigo()).append(")\n");
+                count++;
+            }
+        }
+
+        if (count == 0) {
+            lblResultado.setText("Todos los productos tienen stock disponible");
+            lblResultado.setStyle("-fx-text-fill: green;");
+        } else {
+            lblResultado.setText(sb.toString());
+            lblResultado.setStyle("-fx-text-fill: red;");
+        }
+    }
+
+    private void actualizarEstadisticas() {
+        int totalProductos = inventario.size();
+        double valorTotal = 0;
+
+        for (Producto p : inventario) {
+            valorTotal += p.getPrecio() * p.getCantidad();
+        }
+
+        lblTotalProductos.setText("Total productos: " + totalProductos);
+        lblValorInventario.setText("Valor inventario: C$ " + String.format("%.2f", valorTotal));
+    }
+
+    private boolean camposVacios() {
+        return txtCodigo.getText().isEmpty() ||
+                txtNombre.getText().isEmpty() ||
+                txtCategoria.getText().isEmpty() ||
+                txtPrecio.getText().isEmpty() ||
+                txtCantidad.getText().isEmpty();
     }
 
     private void limpiarCampos() {
@@ -154,7 +170,6 @@ public class InventarioController {
         txtCategoria.clear();
         txtPrecio.clear();
         txtCantidad.clear();
-        txtBuscar.clear();
     }
 
     private void mostrarAlerta(String titulo, String mensaje) {

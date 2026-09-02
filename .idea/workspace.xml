@@ -7,7 +7,12 @@
     <option name="selectedModelId" value="auto" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="554f9baf-fa16-4f40-a339-af844394397d" name="Changes" comment="Correccion del readme" />
+    <list default="true" id="554f9baf-fa16-4f40-a339-af844394397d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistroPulperia/src/main/java/ni/edu/uam/registropulperia/controller/InventarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistroPulperia/src/main/java/ni/edu/uam/registropulperia/controller/InventarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistroPulperia/src/main/java/ni/edu/uam/registropulperia/modelos/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistroPulperia/src/main/java/ni/edu/uam/registropulperia/modelos/Producto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistroPulperia/src/main/java/ni/edu/uam/registropulperia/modelos/Venta.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistroPulperia/src/main/java/ni/edu/uam/registropulperia/modelos/Venta.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,32 +78,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "Application.Launcher.executor": "Run",
-    "Application.PulperiaApplication.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "copilot.chat.legacySessionMetadata.migrated": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Jeremy Gradiz/OneDrive/Desktop/Program/EjerciciosSemana3",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PulperiaApplication.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jeremy Gradiz/OneDrive/Desktop/Program/EjerciciosSemana3&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ni.edu.uam.registropulperia" />
@@ -130,6 +135,8 @@
       <workItem from="1788305114233" duration="205000" />
       <workItem from="1788305469790" duration="179000" />
       <workItem from="1788315112105" duration="4436000" />
+      <workItem from="1788368323992" duration="1539000" />
+      <workItem from="1788369989649" duration="306000" />
     </task>
     <task id="LOCAL-00001" summary="Reto 1. Inventario de pulpería&#10;Contexto: una pulpería necesita registrar productos y consultar rápidamente sus existencias.&#10;&#10;Capturar código, nombre, precio y cantidad.&#10;Usar ActionEvent para guardar.&#10;Usar KeyEvent para buscar con ENTER.&#10;Validar campos vacíos y valores numéricos.&#10;Commit sugerido:&#10;Implementa registro y búsqueda de productos&#10;&#10;Reto 1 probado y funcional">
       <option name="closed" value="true" />
@@ -179,7 +186,23 @@
       <option name="project" value="LOCAL" />
       <updated>1788319182676</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Correccion de nombres">
+      <option name="closed" value="true" />
+      <created>1788368625038</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1788368625038</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Correccion de nombres">
+      <option name="closed" value="true" />
+      <created>1788368645707</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1788368645707</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +213,7 @@
     <MESSAGE value="Los proyectos tienen mejor orden" />
     <MESSAGE value="Agregar .readme, para la comprension y explicacion de los 3 ejercicios propuestos, por el profesor. Arreglar y volver a escribir codigo para el funcionamiento de la pulperia" />
     <MESSAGE value="Correccion del readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correccion del readme" />
+    <MESSAGE value="Correccion de nombres" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correccion de nombres" />
   </component>
 </project>

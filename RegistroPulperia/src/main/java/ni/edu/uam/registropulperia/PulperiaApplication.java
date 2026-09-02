@@ -18,10 +18,11 @@ public class PulperiaApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load());
 
         stage.setResizable(true);
-        stage.setWidth(600);
-        stage.setHeight(700);
+        stage.setWidth(400);
+        stage.setHeight(790);
         stage.setMinWidth(500);
-        stage.setMinHeight(600);
+        stage.setMinHeight(650);
+
 
         stage.setTitle("Inventario de Pulpería");
         stage.setScene(scene);

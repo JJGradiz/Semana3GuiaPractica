@@ -10,7 +10,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.util.Optional;
 
-public class HelloController {
+public class CafeController {
 
     @FXML private TextField txtProductor;
     @FXML private TextField txtPeso;

@@ -7,7 +7,7 @@
     <option name="selectedModelId" value="auto" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="554f9baf-fa16-4f40-a339-af844394397d" name="Changes" comment="Agregar .readme, para la comprension y explicacion de los 3 ejercicios propuestos, por el profesor. Arreglar y volver a escribir codigo para el funcionamiento de la pulperia" />
+    <list default="true" id="554f9baf-fa16-4f40-a339-af844394397d" name="Changes" comment="Correccion del readme" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -129,7 +129,7 @@
       <workItem from="1788303326150" duration="1696000" />
       <workItem from="1788305114233" duration="205000" />
       <workItem from="1788305469790" duration="179000" />
-      <workItem from="1788315112105" duration="4017000" />
+      <workItem from="1788315112105" duration="4436000" />
     </task>
     <task id="LOCAL-00001" summary="Reto 1. Inventario de pulpería&#10;Contexto: una pulpería necesita registrar productos y consultar rápidamente sus existencias.&#10;&#10;Capturar código, nombre, precio y cantidad.&#10;Usar ActionEvent para guardar.&#10;Usar KeyEvent para buscar con ENTER.&#10;Validar campos vacíos y valores numéricos.&#10;Commit sugerido:&#10;Implementa registro y búsqueda de productos&#10;&#10;Reto 1 probado y funcional">
       <option name="closed" value="true" />
@@ -163,7 +163,23 @@
       <option name="project" value="LOCAL" />
       <updated>1788318952471</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Correccion del readme">
+      <option name="closed" value="true" />
+      <created>1788319173504</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1788319173504</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Correccion del readme">
+      <option name="closed" value="true" />
+      <created>1788319182676</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1788319182676</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +189,7 @@
     <MESSAGE value="Reto 1. Inventario de pulpería&#10;Contexto: una pulpería necesita registrar productos y consultar rápidamente sus existencias.&#10;&#10;Capturar código, nombre, precio y cantidad.&#10;Usar ActionEvent para guardar.&#10;Usar KeyEvent para buscar con ENTER.&#10;Validar campos vacíos y valores numéricos.&#10;Commit sugerido:&#10;Implementa registro y búsqueda de productos&#10;&#10;Reto 1 probado y funcional" />
     <MESSAGE value="Los proyectos tienen mejor orden" />
     <MESSAGE value="Agregar .readme, para la comprension y explicacion de los 3 ejercicios propuestos, por el profesor. Arreglar y volver a escribir codigo para el funcionamiento de la pulperia" />
-    <option name="LAST_COMMIT_MESSAGE" value="Agregar .readme, para la comprension y explicacion de los 3 ejercicios propuestos, por el profesor. Arreglar y volver a escribir codigo para el funcionamiento de la pulperia" />
+    <MESSAGE value="Correccion del readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correccion del readme" />
   </component>
 </project>
